@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.title {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+main {
+	position: relative;
+}
+
+th {
+	padding-left: 100px;
+}
+
+td {
+	padding-left: 100px;
+}
+
+th {
+	background-color: #f3f8ff;
+	height: 50px;
+	border-bottom: 1px solid #ccc;
+	color: #9f9f9f;
+}
+
+table {
+	margin-top: 15px;
+}
+
+tr {
+	border-bottom: 1px solid #ccc;
+}
+
+tr:hover {
+  background-color: #f3f3f3;
+}
+
+.btnNewUser {
+	background-color: #385eaa;
+	color: white;
+	height: 30px;
+	width: 150px;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+.icon {
+	border: none;
+	padding-top: 25%;
+	background: none;
+}
+
+.form {
+	position: absolute;
+	left: calc(50% - 200px);
+	top: 50px;
+	height: 70vh;
+	width: 400px;
+	padding-left: 50px;
+	padding-top: 20px;
+	
+}
+.form input {
+	display: block;
+}
+
+.form label {
+	margin-top: 10px;
+}
+
+.form button {
+	background-color: #385eaa;
+	color: white;
+	height: 30px;
+	width: 150px;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	margin-top: 25px;
+}
+
+.formTwo {
+	/* background-color: red; */
+
+}
+
+.formModal {
+	width:50px;
+}
+
+.formModal ul {
+	list-style: none;
+
+}
+
+.formModal .formModalBtn{
+	background-color: #385eaa;
+	color: white;
+	height: 30px;
+	width: 150px;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	/* position: absolute;	 */
+
+}
+
+.formModal-container .formModalBtn-delete{
+	background-color: #fb5252;
+}	
