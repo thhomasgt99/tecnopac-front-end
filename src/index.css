@@ -8,6 +8,7 @@
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
+
 main {
 	position: relative;
 }
@@ -36,7 +37,7 @@ tr {
 }
 
 tr:hover {
-  background-color: #f3f3f3;
+	background-color: #f3f3f3;
 }
 
 .btnNewUser {
@@ -61,10 +62,18 @@ tr:hover {
 	top: 50px;
 	height: 70vh;
 	width: 400px;
-	padding-left: 50px;
 	padding-top: 20px;
-	
+	background-color: #6b6b6c;
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: white;
+
 }
+
 .form input {
 	display: block;
 }
@@ -84,21 +93,15 @@ tr:hover {
 	margin-top: 25px;
 }
 
-.formTwo {
-	/* background-color: red; */
-
-}
-
 .formModal {
-	width:50px;
+	width: 50px;
 }
 
 .formModal ul {
 	list-style: none;
-
 }
 
-.formModal .formModalBtn{
+.formModal .formModalBtn {
 	background-color: #385eaa;
 	color: white;
 	height: 30px;
@@ -106,10 +109,42 @@ tr:hover {
 	border: none;
 	border-radius: 5px;
 	margin-bottom: 15px;
-	/* position: absolute;	 */
-
 }
 
-.formModal-container .formModalBtn-delete{
+.formModal-container .formModalBtn-delete {
 	background-color: #fb5252;
-}	
+}
+
+.btnStatus {
+	display: flex;
+}
+
+.green {
+	background-color: #22a071;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin-top: 7px;
+	margin-right: 5px;
+}
+
+.red {
+	background-color: #fb5252;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin-top: 7px;
+	margin-right: 5px;
+}
+
+.divUser-viewer {
+	width: 150px;
+}
+
+.divUser-viewer i {
+	margin-right: 5px;
+}
+
+.socialImgs i{
+	margin-right: 5px;
+}
