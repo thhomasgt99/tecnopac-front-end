@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext} from 'react'
 import { Form } from './form'
+import AppContext from '../context/AppContext'
 
 export function Modal({ nameUser, name, user_role, status, social_profile, promote, rating, last_login }) {
 	const [text, setText] = useState(false)
 	const [textEdit, setTextEdit] = useState(false)
 	const [data, setData] = useState()
+	const { state, setState } = useContext(AppContext)
+
+	console.log(state)
 
 	function toggleBtn() {
 		setText(!text)
@@ -50,7 +54,11 @@ export function Modal({ nameUser, name, user_role, status, social_profile, promo
 						<div className='formModal-container'>
 							<li><button className='formModalBtn formModalBtn-delete' onClick={handleSubmit}>Eliminar usuario</button></li>
 							<li>
-								<button className='formModalBtn formModalBtn-Edit' onClick={toggleBtnEdit}>
+								<button className='formModalBtn formModalBtn-Edit' onClick={()=>{
+									setState(true)
+									toggleBtnEdit()
+									console.log('hola desde el modal')
+								}}>
 									Editar usuario
 								</button>
 								{
