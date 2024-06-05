@@ -54,7 +54,13 @@ tr:hover {
 	background-color: #f3f3f3;
 }
 
-.btnNewUser {
+.butons-operation {
+	display: flex;
+	justify-content: space-between;
+}
+
+.btnNewUser,
+.btnDeleteAll{
 	background-color: #385eaa;
 	color: white;
 	height: 30px;
@@ -62,6 +68,13 @@ tr:hover {
 	border: none;
 	border-radius: 5px;
 	margin-bottom: 15px;
+}
+
+.btnDeleteAll {
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	border: 1px solid #ccc;
 }
 
 .icon {
@@ -218,3 +231,4 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+

@@ -21,6 +21,23 @@ export function Main() {
 		setText(!text)
 	}
 
+	function deleteAll(e) {
+			e.preventDefault();
+	
+			fetch('http://localhost:3800/api/register', {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json',
+				}
+			})
+				.then(response => response.json())
+				.then((data) => {
+					setData(data)
+					window.location.reload();
+				})
+		};
+	
+
 	useEffect(() => {
 		const today = new Date();
 		const formattedDate = today.toLocaleDateString('es-CO');
@@ -32,9 +49,13 @@ export function Main() {
 	return (
 		<main>
 			<h1 className='title'>Tecnopac CRUD</h1>
+			<div className='butons-operation'>
 			<button className='btnNewUser' onClick={toggleBtn}>
 				+ Add new user
 			</button>
+
+			<button  className="btnDeleteAll" onClick={deleteAll}>Delete all</button>
+			</div>
 			{
 				text ? (<Form />) : ''
 			}
@@ -79,11 +100,13 @@ export function Main() {
 									{
 										item.status == 'Active' ? (
 											<div className='btnStatus'>
+												{/* <input type="radio" /> */}
 												<div className='green'></div>
 												<span>Active</span>
 											</div>
 										) : (
 											<div className='btnStatus'>
+												{/* <input type="radio" /> */}
 												<div className='red'></div>
 												<span>Inactive</span>
 											</div>
