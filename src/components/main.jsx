@@ -83,10 +83,10 @@ export function Main() {
 								</td>
 								<td  key={item._id}>
 									{
-										item.user_role == 'Aministrador' ? (
+										item.user_role == 'Administrador' ? (
 											<div className='divUser-viewer'>
 												<i className="fa-solid fa-user"></i>
-												Aministrator
+												Administrator
 											</div>
 										) : (
 											<div className='divUser-viewer'>
@@ -98,17 +98,16 @@ export function Main() {
 								</td>
 								<td  key={item._id}>
 									{
-										item.status == 'Active' ? (
+										item.status ? (
 											<div className='btnStatus'>
-												{/* <input type="radio" /> */}
-												<div className='green'></div>
-												<span>Active</span>
-											</div>
-										) : (
-											<div className='btnStatus'>
-												{/* <input type="radio" /> */}
 												<div className='red'></div>
 												<span>Inactive</span>
+											</div>
+											
+										) : (
+											<div className='btnStatus'>
+												<div className='green'></div>
+												<span>Active</span>
 											</div>
 										)
 									}
