@@ -84,12 +84,12 @@ export function Main() {
 								<td  key={item._id}>
 									{
 										item.user_role == 'Administrador' ? (
-											<div className='divUser-viewer'>
+											<div className='divUser-viewer admin'>
 												<i className="fa-solid fa-user"></i>
 												Administrator
 											</div>
 										) : (
-											<div className='divUser-viewer'>
+											<div className='divUser-viewer viewer'>
 												<i className="fa-solid fa-eye"></i>
 												Viewer
 											</div>
