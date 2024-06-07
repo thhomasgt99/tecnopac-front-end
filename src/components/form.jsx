@@ -1,16 +1,17 @@
 import { useState, useEffect, useContext } from 'react'
 import AppContext from '../context/AppContext'
 
-export function Form({ nameUser, status, name, user_role = 'Administrador', social_profile = ['Facebook', 'GitHub'], promote = true, rating = 5, last_login = 'June 2024' }) {
+export function Form({ nameUser, status, name, user_role = 'Administrador', social_profile = ['Facebook', 'GitHub'], rating = 5, last_login = 'June 2024' }) {
 	const [stateUser, setStateUser] = useState(true)
-	const { state, setState } = useContext(AppContext)
+	const [statePromote, setStatePromote] = useState(true)
+	const { state, setState,stateFormData,setStateFormData} = useContext(AppContext)
 
 	const [formData, setFormData] = useState({
 		name: nameUser,
 		user_role: user_role,
 		status: stateUser,
 		social_profile: social_profile,
-		promote: promote,
+		promote: statePromote,
 		rating: rating,
 		last_login: last_login,
 
@@ -56,10 +57,9 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 		setFormData({
 			...formData,
 			[name]: value,
-			// state: !stateUser
 		});
-
-		console.log('handleChange:  ' + formData.status)
+		setStateFormData(formData)
+		console.log('handleChange:  ' + formData)
 	};
 
 	const handleChangeState = (e) => {
@@ -68,9 +68,21 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 			status: !stateUser
 		});
 		setStateUser(!stateUser)
+		setStateFormData(formData)
 		console.log('handleChangeState: ' + formData.status)
 	};
 
+	const handleChangePromote = (e) => {
+		setFormData({
+			...formData,
+			promote: !formData.promote
+		});
+		setStatePromote(formData.promote)
+		setStateFormData(formData)
+		console.log('promote: ' + formData.promote)
+	};
+
+	
 
 	if (state) {
 		return (
@@ -98,7 +110,7 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					<input required type="text" name="social_profile" value={formData.social_profile} onChange={handleChange} />
 
 					<label htmlFor="promote">Promote:</label>
-					<input required type="text" name="promote" value={formData.promote} onChange={handleChange} />
+					<input type="checkbox" name="promote" value={formData.promote} onChange={handleChangePromote} />
 
 					<label htmlFor="rating">Rating:</label>
 					<input required type="text" name="rating" value={formData.rating} onChange={handleChange} />
@@ -138,7 +150,7 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					<input required type="text" name="social_profile" value={formData.social_profile} onChange={handleChange} />
 
 					<label htmlFor="promote">Promote:</label>
-					<input required type="text" name="promote" value={formData.promote} onChange={handleChange} />
+					<input  type="checkbox" name="promote" value={formData.promote} onChange={handleChangePromote} />
 
 					<label htmlFor="rating">Rating:</label>
 					<input required type="text" name="rating" value={formData.rating} onChange={handleChange} />

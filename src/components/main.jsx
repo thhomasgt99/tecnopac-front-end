@@ -128,8 +128,8 @@ export function Main() {
 								<td  key={item._id}>
 									{
 										item.promote ? (
-											<Btn />
-										) : ''
+											<Btn promote={item.promote}/>
+										) : <Btn promote={item.promote}/>
 									}
 								</td>
 								<td  key={item._id}>
