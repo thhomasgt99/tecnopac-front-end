@@ -85,8 +85,13 @@ export function Main() {
 									{
 										item.user_role == 'Administrador' ? (
 											<div className='divUser-viewer admin'>
-												<i className="fa-solid fa-user"></i>
+												<i class="fa-solid fa-clipboard"></i>
 												Administrator
+											</div>
+										) : item.user_role == 'Moderator' ?  (
+											<div className='divUser-viewer moderator'>
+												<i class="fa-solid fa-user"></i>
+												Moderator
 											</div>
 										) : (
 											<div className='divUser-viewer viewer'>

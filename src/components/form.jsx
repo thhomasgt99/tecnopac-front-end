@@ -4,7 +4,7 @@ import AppContext from '../context/AppContext'
 export function Form({ nameUser, status, name, user_role = 'Administrador', social_profile = ['Facebook', 'GitHub'], rating = 5, last_login = 'June 2024' }) {
 	const [stateUser, setStateUser] = useState(true)
 	const [statePromote, setStatePromote] = useState(true)
-	const { state, setState,stateFormData,setStateFormData} = useContext(AppContext)
+	const { state, setState, stateFormData, setStateFormData } = useContext(AppContext)
 
 	const [formData, setFormData] = useState({
 		name: nameUser,
@@ -82,7 +82,7 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 		console.log('promote: ' + formData.promote)
 	};
 
-	
+
 
 	if (state) {
 		return (
@@ -92,11 +92,16 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					<input required type="text" name="name" value={formData.name} onChange={handleChange} />
 
 					<label htmlFor="user_role">User_role:</label>
-					<input required type="text" name="user_role" value={formData.user_role} onChange={handleChange} />
+					<select name="user_role" id="user_role">
+						<option value="Administrador">Administrador</option>
+						<option value="Moderator">Moderator</option>
+						<option value="Viewer">Viewer</option>
+					</select>
+					{/* <input required type="text" name="user_role" value={formData.user_role} onChange={handleChange} /> */}
 
 					<label htmlFor="status">Status: Active</label>
 					{
-						
+
 						formData.status ? (
 
 							<input type="checkbox" name="status" value={formData.status} onChange={handleChangeState} />
@@ -134,7 +139,12 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					<input required type="text" name="name" value={formData.name} onChange={handleChange} />
 
 					<label htmlFor="user_role">User_role:</label>
-					<input required type="text" name="user_role" value={formData.user_role} onChange={handleChange} />
+					<select name="user_role" id="user_role" onChange={handleChange}>
+						<option value="Administrador">Administrador</option>
+						<option value="Moderator">Moderator</option>
+						<option value="Viewer">Viewer</option>
+					</select>
+					{/* <input required type="text" name="user_role" value={formData.user_role} onChange={handleChange} /> */}
 
 					<label htmlFor="status">Status: Active</label>
 					{
@@ -150,7 +160,7 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					<input required type="text" name="social_profile" value={formData.social_profile} onChange={handleChange} />
 
 					<label htmlFor="promote">Promote:</label>
-					<input  type="checkbox" name="promote" value={formData.promote} onChange={handleChangePromote} />
+					<input type="checkbox" name="promote" value={formData.promote} onChange={handleChangePromote} />
 
 					<label htmlFor="rating">Rating:</label>
 					<input required type="text" name="rating" value={formData.rating} onChange={handleChange} />
