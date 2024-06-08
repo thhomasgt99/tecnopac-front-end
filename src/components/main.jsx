@@ -22,21 +22,21 @@ export function Main() {
 	}
 
 	function deleteAll(e) {
-			e.preventDefault();
-	
-			fetch('http://localhost:3800/api/register', {
-				method: 'DELETE',
-				headers: {
-					'Content-Type': 'application/json',
-				}
+		e.preventDefault();
+
+		fetch('http://localhost:3800/api/register', {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			}
+		})
+			.then(response => response.json())
+			.then((data) => {
+				setData(data)
+				window.location.reload();
 			})
-				.then(response => response.json())
-				.then((data) => {
-					setData(data)
-					window.location.reload();
-				})
-		};
-	
+	};
+
 
 	useEffect(() => {
 		const today = new Date();
@@ -50,11 +50,11 @@ export function Main() {
 		<main>
 			<h1 className='title'>Tecnopac CRUD</h1>
 			<div className='butons-operation'>
-			<button className='btnNewUser' onClick={toggleBtn}>
-				+ Add new user
-			</button>
+				<button className='btnNewUser' onClick={toggleBtn}>
+					+ Add new user
+				</button>
 
-			<button  className="btnDeleteAll" onClick={deleteAll}>Delete all</button>
+				<button className="btnDeleteAll" onClick={deleteAll}>Delete all</button>
 			</div>
 			{
 				text ? (<Form />) : ''
@@ -75,20 +75,20 @@ export function Main() {
 						<>
 
 							<tr key={item._id}>
-								<td  key={item._id}>
+								<td key={item._id}>
 									<div>
-									<Image />
-									{item.name}
+										<Image />
+										{item.name}
 									</div>
 								</td>
-								<td  key={item._id}>
+								<td key={item._id}>
 									{
 										item.user_role == 'Administrador' ? (
 											<div className='divUser-viewer admin'>
 												<i class="fa-solid fa-clipboard"></i>
 												Administrator
 											</div>
-										) : item.user_role == 'Moderator' ?  (
+										) : item.user_role == 'Moderator' ? (
 											<div className='divUser-viewer moderator'>
 												<i class="fa-solid fa-user"></i>
 												Moderator
@@ -101,14 +101,14 @@ export function Main() {
 										)
 									}
 								</td>
-								<td  key={item._id}>
+								<td key={item._id}>
 									{
 										item.status ? (
 											<div className='btnStatus'>
 												<div className='red'></div>
 												<span>Inactive</span>
 											</div>
-											
+
 										) : (
 											<div className='btnStatus'>
 												<div className='green'></div>
@@ -117,27 +117,44 @@ export function Main() {
 										)
 									}
 								</td>
-								<td  key={item._id}>
-									{
-										item.social_profile ? (
-											<div className='socialImgs'>
+								<td key={item._id}>
+									<div className='socialImgs'>
+										{
+											item.social_profile.includes('Facebook') && (
+
 												<i className="fa-brands fa-facebook"></i>
+											)
+										}
+										{
+											item.social_profile.includes('GitHub') && (
 												<i className="fa-brands fa-github"></i>
+											)
+										}
+										{
+											item.social_profile.includes('Dribbble') && (
 												<i className="fa-brands fa-dribbble"></i>
-												<i className="fa-brands fa-twitter"></i>
+											)
+										}
+										{
+											item.social_profile.includes('X') && (
+												<i class="fa-brands fa-x-twitter"></i>
+											)
+										}
+										{
+											item.social_profile.includes('Google') && (
 												<i className="fa-brands fa-google"></i>
-											</div>
-										) : ''
-									}
+											)
+										}
+									</div>
 								</td>
-								<td  key={item._id}>
+								<td key={item._id}>
 									{
 										item.promote ? (
-											<Btn promote={item.promote}/>
-										) : <Btn promote={item.promote}/>
+											<Btn promote={item.promote} />
+										) : <Btn promote={item.promote} />
 									}
 								</td>
-								<td  key={item._id}>
+								<td key={item._id}>
 									{
 										item.rating >= 4.5 ? (
 											<div>
@@ -149,7 +166,7 @@ export function Main() {
 											</div>)
 									}
 								</td>
-								<td  key={item._id}>{date}</td>
+								<td key={item._id}>{date}</td>
 								<Modal nameUser={item.name} user_role={item.user_role} status={item.status} social_profile={item.social_profile} promote={item.promote} rating={item.rating} last_login={date} />
 							</tr>
 

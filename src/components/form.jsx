@@ -10,7 +10,7 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 		name: nameUser,
 		user_role: user_role,
 		status: stateUser,
-		social_profile: social_profile,
+		social_profile: [],
 		promote: statePromote,
 		rating: rating,
 		last_login: last_login,
@@ -62,6 +62,17 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 		console.log('handleChange:  ' + formData)
 	};
 
+	const handleChangeProfile = (e) => {
+		const { name, value } = e.target;
+
+		setFormData({
+			...formData,
+			social_profile: [...formData.social_profile, value]
+		});
+		setStateFormData(formData)
+		console.log('handleChange:  ' + formData)
+	};
+
 	const handleChangeState = (e) => {
 		setFormData({
 			...formData,
@@ -97,7 +108,6 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 						<option value="Moderator">Moderator</option>
 						<option value="Viewer">Viewer</option>
 					</select>
-					{/* <input required type="text" name="user_role" value={formData.user_role} onChange={handleChange} /> */}
 
 					<label htmlFor="status">Status: Active</label>
 					{
@@ -112,7 +122,33 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					}
 
 					<label htmlFor="social_profile">Social_profile:</label>
-					<input required type="text" name="social_profile" value={formData.social_profile} onChange={handleChange} />
+					<fieldset onChange={handleChangeProfile}>
+						<div className='container-profile'>
+							<label for="Facebook">Facebook</label>
+							<input type="checkbox" id="Facebook" name="social_profile" value="Facebook" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="GitHub">GitHub</label>
+							<input type="checkbox" id="GitHub" name="social_profile" value="GitHub" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="Dribbble">Dribbble</label>
+							<input type="checkbox" id="Dribbble" name="social_profile" value="Dribbble" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="X">X</label>
+							<input type="checkbox" id="X" name="social_profile" value="X" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="Google">Google</label>
+							<input type="checkbox" id="Google" name="social_profile" value="Google" />
+						</div>
+
+					</fieldset>
 
 					<label htmlFor="promote">Promote:</label>
 					<input type="checkbox" name="promote" value={formData.promote} onChange={handleChangePromote} />
@@ -156,7 +192,36 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					}
 
 					<label htmlFor="social_profile">Social_profile:</label>
-					<input required type="text" name="social_profile" value={formData.social_profile} onChange={handleChange} />
+					<fieldset onChange={handleChangeProfile}>
+						<div className='container-profile'>
+							<label for="Facebook">Facebook</label>
+							<input type="checkbox" id="Facebook" name="social_profile" value="Facebook" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="GitHub">GitHub</label>
+							<input type="checkbox" id="GitHub" name="social_profile" value="GitHub" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="Dribbble">Dribbble</label>
+							<input type="checkbox" id="Dribbble" name="social_profile" value="Dribbble" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="X">X</label>
+							<input type="checkbox" id="X" name="social_profile" value="X" />
+						</div>
+
+						<div className='container-profile'>
+							<label for="Google">Google</label>
+							<input type="checkbox" id="Google" name="social_profile" value="Google" />
+						</div>
+
+					</fieldset>
+
+
+					{/* <input required type="text" name="social_profile" value={formData.social_profile} onChange={handleChange} /> */}
 
 					<label htmlFor="promote">Promote:</label>
 					<input type="checkbox" name="promote" value={formData.promote} onChange={handleChangePromote} />
