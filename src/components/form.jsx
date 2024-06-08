@@ -92,7 +92,7 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 					<input required type="text" name="name" value={formData.name} onChange={handleChange} />
 
 					<label htmlFor="user_role">User_role:</label>
-					<select name="user_role" id="user_role">
+					<select name="user_role" id="user_role" onChange={handleChange}>
 						<option value="Administrador">Administrador</option>
 						<option value="Moderator">Moderator</option>
 						<option value="Viewer">Viewer</option>
@@ -144,7 +144,6 @@ export function Form({ nameUser, status, name, user_role = 'Administrador', soci
 						<option value="Moderator">Moderator</option>
 						<option value="Viewer">Viewer</option>
 					</select>
-					{/* <input required type="text" name="user_role" value={formData.user_role} onChange={handleChange} /> */}
 
 					<label htmlFor="status">Status: Active</label>
 					{
