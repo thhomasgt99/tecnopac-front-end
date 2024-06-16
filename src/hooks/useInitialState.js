@@ -2,14 +2,14 @@ import { useState } from "react";
 
 const useInitialState = () => {
 	const [state, setState] = useState(false)
-	const [count, setCount] = useState(3)
 	const [stateFormData, setStateFormData] = useState({})
 
-	
+	function arbi() {
+		console.log('Texto de prueba')
+	}
 	return (
 			{
-				count,
-				setCount,
+				arbi,
 				state,
 				setState,
 				stateFormData,
